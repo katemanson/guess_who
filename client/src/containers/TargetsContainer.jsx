@@ -12,6 +12,13 @@ const TargetsContainer = (props) => {
       return "ies"
     }
   }
+  const hidden = (peopleInPlay) => {
+    if ( peopleInPlay <= 1 ){
+      return false
+    } else {
+      return true
+    }
+  }
 
   return (
     <div className="targets-container" playerTurn={props.playerTurn}>
@@ -32,7 +39,7 @@ const TargetsContainer = (props) => {
           id={props.playerTarget.id} 
           characteristics={props.playerTarget.characteristics}
           inPlay={false}
-          hidden={true}
+          hidden={hidden(props.playerPeopleInPlay)}
         />
         <h5>You have {props.playerPeopleInPlay} possibilit{singularOrPlural(props.playerPeopleInPlay)} left</h5>
       </div>
