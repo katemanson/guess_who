@@ -74,18 +74,25 @@ class GameContainer extends React.Component{
   }
 
   checkWin(){
-    if ( this.appPeopleInPlay === 1 && this.playerPeoplePlay > 1){
+    if ( this.appPeopleInPlay === 1 ){
+      console.log('checkWin app has 1 in play')
       this.setState({winnerText: "Opponent wins!"})
       setTimeout(() => { this.handleWin() }, 3000)
     }
-    if ( this.playerPeopleInPlay === 1 && this.appPeoplePlay > 1){
+    if ( this.playerPeopleInPlay === 1 ){
+      console.log('checkWin player has 1 in play')
       this.setState({winnerText: "You win!"})
       setTimeout(() => { this.handleWin() }, 3000)
     }
     else {
       if ( this.playerTurn ){ 
+        console.log('checkWin player turn true')
+        // this.setState({playerTurn: false})
         setTimeout(() => { this.handleAppQuestion() }, 3000)
-      } else {
+      } 
+      if ( !this.playerTurn ){
+        console.log('checkWin player turn', this.state.playerTurn)
+        // this.setState({playerTurn: true})
         setTimeout(() => { this.handleTransition() }, 3000)
       }
     }
@@ -138,10 +145,12 @@ class GameContainer extends React.Component{
       currentAnswer: answer,
       infoState: 2
     })
+    console.log('playerTurn in handleAnswer', this.state.playerTurn)
     this.checkWin()
   }
 
   handleAppQuestion(){
+    console.log('in handleAppQuestion')
     const copyAppQuestions = this.state.appQuestions.slice()
     const question = getRandomItem(copyAppQuestions)
     copyAppQuestions.splice(question.id, question.id + 1)
@@ -150,7 +159,6 @@ class GameContainer extends React.Component{
       appQuestions: copyAppQuestions,
       currentQuestion: question,
       currentAnswer: "",
-      playerTurn: false,
       infoState: 1
     })
 
@@ -194,7 +202,6 @@ class GameContainer extends React.Component{
 
   handleTransition(){
     this.setState({
-      playerTurn: true,
       currentQuestion: {},
       currentAnswer: "",
       infoState: 0
