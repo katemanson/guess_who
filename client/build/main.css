@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  font-family: Verdana, sans-serif;
+}
+
+.gameboard {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.targets-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.question-container {
+  margin: 20px;
+}
+
+.target {
+  width: 280px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.target.app.true, .player.false {
+  background: lightgrey;
+  opacity: 0.3;
+}
+
+.person {
+  width: 100px;
+  height: 100px;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  font-weight: bolder;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.person.in-play:hover {
+  background: teal;
+  cursor: pointer;
+}
+
+.person.out-of-play, .hidden {
+  background: grey;
+  opacity: 0.5;
+  font-size: 20px;
+}
+
+.question {
+  height: 2.5em;
+  background: lightseagreen;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 0.5em;
+  font-size: 16px;  
+  color: white;
+  text-align: left;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.question:hover {
+  background: teal;
+  cursor: pointer;
+}
+
+
