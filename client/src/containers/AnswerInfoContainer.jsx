@@ -1,10 +1,9 @@
 import React from 'react'
 
 const AnswerInfoContainer = (props) => {
-  const className = 'info-container ' + props.hide
 
   return(
-    <div className={className}>
+    <div className=`info-container ${props.hide}`>
       <p><strong>Answer is:</strong> {props.answer}</p>
     </div>
   )

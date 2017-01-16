@@ -3,6 +3,10 @@
   font-family: Verdana, sans-serif;
 }
 
+.hide {
+  display: none;
+}
+
 .gameboard {
   display: flex;
   flex-wrap: wrap;
@@ -14,7 +18,7 @@
   flex-wrap: wrap;
 }
 
-.question-container {
+.info-container {
   margin: 20px;
 }
 
@@ -51,7 +55,6 @@
 }
 
 .person.out-of-play, .hidden {
-  background: grey;
   opacity: 0.5;
   font-size: 20px;
 }

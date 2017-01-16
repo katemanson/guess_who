@@ -1,10 +1,9 @@
 import React from 'react'
 
 const WinInfoContainer = (props) => {
-  const className = 'info-container ' + props.hide
 
   return(
-    <div className={className}>
+    <div className=`info-container ${props.hide}`>
       <h2>{props.winnerText}</h2>
     </div>
   )
